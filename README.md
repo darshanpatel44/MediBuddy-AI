@@ -97,24 +97,24 @@ npm run dev
 
 The application will be available at `http://localhost:5173`
 
-## Inspiration 🧠
+## Inspiration 🧠 
 
-Every year, thousands of clinical trials go under-enrolled — not because patients are unwilling, but because they’re unaware. Doctors often don’t have time to search eligibility criteria or explain options during short appointments. We asked ourselves:  
-**What if trial matching could happen automatically — in the background — during a normal doctor visit?**
+Every year, thousands of clinical trials go under-enrolled, not because patients are unwilling, but because they’re unaware. Doctors often don’t have time to search eligibility criteria or explain options during short appointments, they also have on additional overhead of taking notes of the medical history of patients during the visit. We asked ourselves:  
+**What if trial matching could happen automatically in the background during a normal doctor visit?**
 
-That question led us to build **MediBuddy** — an autonomous, privacy-first platform that turns doctor-patient conversations into life-saving trial opportunities.
+That question led us to build **MediBuddy** - an autonomous, privacy-first platform that turns doctor-patient conversations into life-saving trial opportunities.
 
 ---
 
 ## What it does 💡
 
-**MediBuddy** listens to doctor-patient appointments via voice, transcribes the conversation in real-time, structures the medical information, and uses autonomous agents to match patients with relevant clinical trials. If a match is found, the patient can securely consent to share limited data with the sponsor — all without leaving the app.
+**MediBuddy** listens to doctor-patient appointments via voice, transcribes the conversation in real-time, structures the medical information, generates a report, and uses autonomous agents to match patients with relevant clinical trials. If a match is found, the patient can securely consent to share limited data with the sponsor  all without leaving the app. 
 
 The platform supports:
 
 - 📅 **Appointment Booking** (with doctor approval)
 - 🎙️ **Speech-to-text Transcription** (via Groq (Whisper v3 Large Turbo))
-- 🧾 **Summarization and Structuring** (via Gemini)
+- 🧾 **Summarization and Structuring** (via Google Gemini)
 - 🧬 **Clinical Trial Matching via AI Agents** (ASI-1 by Fetch.ai)
 - ✅ **Consent Management** for trials
 - 🧑‍⚕️ **Role-based Dashboards** for Doctors and Patients
@@ -136,12 +136,10 @@ We began by designing user flows for both patients and doctors to make sure the 
 We built MediBuddy to prove that even complex, regulated workflows like trial enrollment can be simplified with the right blend of AI, agent systems, and thoughtful UX.
 
 ---
-
-### Key Features Implemented 🧱
-
+###  Key Features Implemented 🧱
 - **Auth system** for Patients and Doctors
 - **Doctor dashboard** to manage appointment requests and suggest trials
-- **Patient dashboard** to review transcripts, summaries, and suggested trials
+- **Patient dashboard** to review transcripts, summaries/reports, and suggested trials
 - **Speech capture** from doctor interactions, transcribed and summarized
 - **Structured data extraction** for trial matching
 - **Agent-based communication** for querying trial sponsors
@@ -151,13 +149,13 @@ We built MediBuddy to prove that even complex, regulated workflows like trial en
 
 ## Challenges we ran into 🤯
 
+
 - **Agent interoperability**: Designing a flexible message format for Fetch.ai agents to exchange patient-trial matching data while preserving privacy was tricky.
-- **On-device vs. API trade-offs**: We wanted to minimize cloud-based PII exposure, so we had to carefully architect our pipeline to process transcription and summarization securely.
-- **Natural language variability**: Doctor conversations are unstructured — turning them into structured trial-relevant data was challenging. We fine-tuned prompt strategies for Gemini to extract accurate conditions, age, and comorbidities.
+- **On-device vs. API trade-offs**: We wanted to minimize cloud-based PII(Personally Identifiable Information) exposure, so we had to carefully architect our pipeline to process transcription and summarization securely.
+- **Natural language variability**: Doctor conversations are unstructured, turning them into structured trial-relevant data was challenging. We fine-tuned prompt strategies for Gemini to extract accurate conditions, age, and comorbidities.
 - **Convex learning curve**: Convex’s serverless model and schema system were powerful but took some iteration to model complex relationships like appointments, consent, and role-based access correctly.
 
 ---
-
 ## Accomplishments that we're proud of 🏆
 
 - Built a fully functional end-to-end prototype in under 24 hours
@@ -172,31 +170,26 @@ We built MediBuddy to prove that even complex, regulated workflows like trial en
 
 ## What we learned 📚
 
-- **Voice is a powerful interface** — it lowers the barrier to data collection and enables richer insights, especially in clinical contexts.
+- **Voice is a powerful interface** , it lowers the barrier to data collection and enables richer insights, especially in clinical contexts.
 - **AI agents + human interfaces** can work in harmony. We built trust-first experiences by keeping the user in control (e.g., explicit consent before trial sharing).
-- **Convex is great for rapid prototyping** — real-time updates, integrated database, and strong typing helped us move fast once we were over the initial learning curve.
-- **Healthcare UX matters** — we focused on keeping flows intuitive, secure, and frictionless, especially for sensitive actions like consent and data sharing.
+- **Convex is great for rapid prototyping** :  real-time updates, integrated database, and strong typing helped us move fast once we were over the initial learning curve.
+- **Healthcare UX matters**, we focused on keeping flows intuitive, secure, and frictionless, especially for sensitive actions like consent and data sharing.
 
 ---
-
 ## What's next for MediBuddy 🔮
 
-- 🔗 **Integration with real clinical trial databases** like ClinicalTrials.gov to expand real-time matching
 - 🧬 **Custom agent logic** for more nuanced trial filtering (e.g., co-morbidities, stage-specific trials)
-- 📲 **Voice input from patients**, allowing them to describe concerns verbally
 - 🔐 **Biometric consent mechanisms** (e.g., voice or face verification)
 - 📈 **Doctor-side analytics dashboard** for trial recommendation insights
 - 🎁 **Token-based reward system** for trial participation and consent engagement
 - ☁️ Optional encrypted backup using IPFS for decentralized storage of summaries and transcripts
 
 ---
-
 ## The Impact 🌟
 
 With **MediBuddy**, we hope to:
-
-- **Make clinical trials more accessible** — especially for patients who never knew they qualified
-- **Reduce doctor workload** by enabling passive trial discovery
+- **Make clinical trials more accessible** , especially for patients who never knew they qualified
+- **Reduce doctor workload** by enabling passive trial discovery and transcription & summarization of the conversation.
 - **Push forward agent-based automation** in a space where trust and privacy are paramount
 
-We believe MediBuddy is not just a hackathon project — it's a real step toward bringing **AI-powered clinical access** into everyday care.
+ We believe MediBuddy is not just a hackathon project,  it's a real step toward bringing **AI-powered clinical access** into everyday care.
