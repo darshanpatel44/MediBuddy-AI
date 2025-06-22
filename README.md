@@ -27,7 +27,77 @@ MediBuddy AI provides a comprehensive healthcare platform with:
 - **UI Components** - Tailwind CSS + Radix UI for accessible, modern design
 - **Audio Processing** - Web Audio API for real-time transcription
 
-## Inspiration 🧠 
+## Setup & Installation 🚀
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd MediBuddy-AI
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Environment Setup
+
+Copy the environment variables template and fill in your API keys:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your actual API keys:
+
+```bash
+# Convex Configuration
+CONVEX_DEPLOYMENT=your_convex_deployment_url
+VITE_CONVEX_URL=your_convex_url
+
+# Authentication
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+
+# AI Services
+OPENAI_API_KEY=your_openai_api_key
+GOOGLE_GEMINI_API_KEY=your_gemini_api_key
+
+# ASI1 Integration (fetch.ai)
+ASI1_API_KEY=your_asi1_api_key_here
+ASI1_BASE_URL=https://api.asi1.ai
+ASI1_MODEL=asi1-mini
+
+# ClinicalTrials.gov API
+CLINICAL_TRIALS_BASE_URL=https://clinicaltrials.gov/api/v2
+```
+
+### 4. Run the Backend (Convex)
+
+In one terminal, start the Convex backend:
+
+```bash
+npx convex dev
+```
+
+### 5. Run the Frontend
+
+In another terminal, start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Inspiration 🧠
 
 Every year, thousands of clinical trials go under-enrolled — not because patients are unwilling, but because they’re unaware. Doctors often don’t have time to search eligibility criteria or explain options during short appointments. We asked ourselves:  
 **What if trial matching could happen automatically — in the background — during a normal doctor visit?**
@@ -66,7 +136,9 @@ We began by designing user flows for both patients and doctors to make sure the 
 We built MediBuddy to prove that even complex, regulated workflows like trial enrollment can be simplified with the right blend of AI, agent systems, and thoughtful UX.
 
 ---
-###  Key Features Implemented 🧱
+
+### Key Features Implemented 🧱
+
 - **Auth system** for Patients and Doctors
 - **Doctor dashboard** to manage appointment requests and suggest trials
 - **Patient dashboard** to review transcripts, summaries, and suggested trials
@@ -79,13 +151,13 @@ We built MediBuddy to prove that even complex, regulated workflows like trial en
 
 ## Challenges we ran into 🤯
 
-
 - **Agent interoperability**: Designing a flexible message format for Fetch.ai agents to exchange patient-trial matching data while preserving privacy was tricky.
 - **On-device vs. API trade-offs**: We wanted to minimize cloud-based PII exposure, so we had to carefully architect our pipeline to process transcription and summarization securely.
 - **Natural language variability**: Doctor conversations are unstructured — turning them into structured trial-relevant data was challenging. We fine-tuned prompt strategies for Gemini to extract accurate conditions, age, and comorbidities.
 - **Convex learning curve**: Convex’s serverless model and schema system were powerful but took some iteration to model complex relationships like appointments, consent, and role-based access correctly.
 
 ---
+
 ## Accomplishments that we're proud of 🏆
 
 - Built a fully functional end-to-end prototype in under 24 hours
@@ -106,6 +178,7 @@ We built MediBuddy to prove that even complex, regulated workflows like trial en
 - **Healthcare UX matters** — we focused on keeping flows intuitive, secure, and frictionless, especially for sensitive actions like consent and data sharing.
 
 ---
+
 ## What's next for MediBuddy 🔮
 
 - 🔗 **Integration with real clinical trial databases** like ClinicalTrials.gov to expand real-time matching
@@ -117,11 +190,13 @@ We built MediBuddy to prove that even complex, regulated workflows like trial en
 - ☁️ Optional encrypted backup using IPFS for decentralized storage of summaries and transcripts
 
 ---
+
 ## The Impact 🌟
 
 With **MediBuddy**, we hope to:
+
 - **Make clinical trials more accessible** — especially for patients who never knew they qualified
 - **Reduce doctor workload** by enabling passive trial discovery
 - **Push forward agent-based automation** in a space where trust and privacy are paramount
 
- We believe MediBuddy is not just a hackathon project — it's a real step toward bringing **AI-powered clinical access** into everyday care.
+We believe MediBuddy is not just a hackathon project — it's a real step toward bringing **AI-powered clinical access** into everyday care.
